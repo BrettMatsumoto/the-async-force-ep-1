@@ -56,7 +56,6 @@ function reqListenerSWMovies() {
     let planetArray = responseData.results[i].planets;
 
     for (let j = 0; j < planetArray.length; j++) {
-      console.log(planetArray[j]);
       const oReqPlanets = new XMLHttpRequest();
       oReqPlanets.addEventListener('load', reqListenerPlanets);
       oReqPlanets.open('GET', planetArray[j]);
@@ -66,8 +65,6 @@ function reqListenerSWMovies() {
         let planets = document.createElement('li');
         planets.innerHTML = JSON.parse(this.responseText).name;
         movies.appendChild(planets);
-
-        console.log(planetArray[j].name);
       }
     }
   }
